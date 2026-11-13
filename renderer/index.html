@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https://ddragon.leagueoflegends.com https://raw.communitydragon.org data:; style-src 'self'; script-src 'self'">
+  <title>LoL Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>LoL Assistant</h1>
+    <span id="status" class="status off">Client LoL : déconnecté</span>
+  </header>
+  <nav>
+    <button data-tab="library" class="active">Bibliothèque</button>
+    <button data-tab="editor">Créer une page</button>
+    <button data-tab="select">Sélection</button>
+    <button data-tab="notes">Notes</button>
+  </nav>
+  <div id="toast" class="toast" hidden></div>
+
+  <main>
+    <section id="tab-library">
+      <div class="toolbar">
+        <input id="lib-search" type="search" placeholder="Rechercher un champion…" autocomplete="off" spellcheck="false">
+        <span id="lib-count" class="hint"></span>
+        <button id="lib-new" class="primary" type="button">+ Nouvelle page</button>
+      </div>
+      <div id="lib-list"></div>
+    </section>
+
+    <section id="tab-editor" hidden></section>
+
+    <section id="tab-select" hidden>
+      <div class="card" id="select-card"></div>
+      <div class="card" id="advice-card"></div>
+    </section>
+
+    <section id="tab-notes" hidden>
+      <div class="card form-grid">
+        <label>Champion <span id="nt-champ"></span></label>
+        <label>Adversaire (optionnel) <span id="nt-vs"></span></label>
+        <label class="wide">Note
+          <textarea id="nt-text" rows="4" placeholder="ex : Respecte son niveau 3, joue autour de ses sorts…"></textarea>
+        </label>
+        <div class="wide"><button id="nt-save" class="primary" type="button">Ajouter la note</button></div>
+      </div>
+      <div id="nt-list"></div>
+    </section>
+  </main>
+
+  <script src="common.js"></script>
+  <script src="editor.js"></script>
+  <script src="library.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

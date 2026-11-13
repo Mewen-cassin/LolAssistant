@@ -1,0 +1,20 @@
+{
+  "name": "lol-assistant",
+  "version": "0.1.0",
+  "description": "Outil perso : pages de runes par champion, import auto via le client LoL (LCU), conseils de matchup.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && electron .",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.5.12",
+    "electron": "^45.3.1",
+    "typescript": "^5.6.0"
+  }
+}
