@@ -6,11 +6,16 @@
         content="default-src 'self'; img-src 'self' https://ddragon.leagueoflegends.com https://raw.communitydragon.org data:; style-src 'self'; script-src 'self'">
   <title>LoL Assistant</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="theme.js"></script>
 </head>
 <body>
+  <canvas id="fx" aria-hidden="true"></canvas>
   <header>
     <h1>LoL Assistant</h1>
-    <span id="status" class="status off">Client LoL : déconnecté</span>
+    <div class="header-right">
+      <div id="themes" class="themes" role="group" aria-label="Thème"></div>
+      <span id="status" class="status off">Client LoL : déconnecté</span>
+    </div>
   </header>
   <nav>
     <button data-tab="library" class="active">Bibliothèque</button>
@@ -50,6 +55,7 @@
     </section>
   </main>
 
+  <script src="fx.js"></script>
   <script src="common.js"></script>
   <script src="editor.js"></script>
   <script src="library.js"></script>

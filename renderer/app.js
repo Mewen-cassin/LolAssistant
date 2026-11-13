@@ -152,6 +152,28 @@ function applyState(s) {
   renderAdvice();
 }
 
+/* ---------- Theme switcher ---------- */
+function buildThemeSwitcher() {
+  const box = $('themes');
+  const paint = () => {
+    const current = document.documentElement.dataset.theme;
+    box.replaceChildren(
+      ...THEMES.map((t) =>
+        h('button', {
+          type: 'button',
+          class: `theme-btn${t.id === current ? ' on' : ''}`,
+          title: t.label,
+          'aria-pressed': String(t.id === current),
+          onclick: () => { setTheme(t.id); paint(); },
+        }, h('span', { class: 'theme-emoji' }, t.emoji), h('span', { class: 'theme-label' }, t.label)),
+      ),
+    );
+  };
+  paint();
+}
+
+buildThemeSwitcher();
+
 (async () => {
   try {
     ddragon = await window.api.getData();

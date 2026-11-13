@@ -186,7 +186,8 @@ function createWindow(): void {
     minHeight: 600,
     title: 'LoL Assistant',
     icon: path.join(__dirname, '..', 'assets', 'icon.ico'),
-    backgroundColor: '#0f1419',
+    backgroundColor: '#0e0f13',
+    show: false, // shown once painted, so a light theme never flashes dark first
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -194,6 +195,7 @@ function createWindow(): void {
     },
   });
   win.setMenuBarVisibility(false);
+  win.once('ready-to-show', () => win?.show());
   void win.loadFile(path.join(__dirname, '..', 'renderer', 'index.html'));
 }
 
